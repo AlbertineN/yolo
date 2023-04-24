@@ -1,2 +1,5 @@
 Step one
 Went through the instructions in the README.md file to test and see if the application works, which it does well on port 3000 for the ecomerce yolo website and port 5000 for the mongo database. 
+
+Step two 
+Create a Dockerfile for the client image that will create a docker container in which it will run in. 
