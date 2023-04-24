@@ -3,3 +3,6 @@ Went through the instructions in the README.md file to test and see if the appli
 
 Step two 
 Create a Dockerfile for the client image that will create a docker container in which it will run in. 
+
+Step Three
+Create a Dockerfile for the backend image that will create a docker comtainer in which the backend will run in. 
