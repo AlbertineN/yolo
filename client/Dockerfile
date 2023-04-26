@@ -1,11 +1,12 @@
-FROM node:8
+FROM node:alpine
 
-WORKDIR /client-yolo
+WORKDIR /usr/src/yolo
 
-COPY . .
+COPY package*.json .
 
 RUN npm install
 
+COPY . .
 EXPOSE 3000
 
 ENTRYPOINT [ "npm", "start" ]

@@ -11,4 +11,7 @@ Step Four
 Create a docker-compose.yml file to orchestrate our e-commerce platform. In this file, we will also pull a mongodb image as our backend requires a mongodb database. 
 
 Step Five
-Run the docker compose up command to build images run them. Upon running the command, i realize that my client container exits before the deployment server starts.
+Run the docker compose up command to build images run them. Upon running the command, i realize that my client container exits with no errors before the deployment server starts.
+
+Step Six
+Added tty: true  >> this comand ensures that my container does not exit but rather keeps running. However I come across another error which is brought about  by the start script.
