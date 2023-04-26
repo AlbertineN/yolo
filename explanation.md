@@ -16,4 +16,7 @@ Run the docker compose up command to build images run them. Upon running the com
 Step Six
 Added tty: true  >> this comand ensures that my container does not exit but rather keeps running. However I come across another error which is brought about  by the start script. updtaed the start script to  *"start": "react-scripts --openssl-legacy-provider start",* This solved my issue as my development server could now start. 
 
+Step Seven
+Accessed the website on *http://localhost:3000* tested my connections by adding a product. the product was added succesfully. Stopped my containers and run *sudo docker compose down*  to stop and remove my containers. run sudo docker compose up to create fresh containers from my images and upon accessing the site, the product I added was still there meaning I set my volumes well and my data persisted. 
+
 
