@@ -14,4 +14,6 @@ Step Five
 Run the docker compose up command to build images run them. Upon running the command, i realize that my client container exits with no errors before the deployment server starts.
 
 Step Six
-Added tty: true  >> this comand ensures that my container does not exit but rather keeps running. However I come across another error which is brought about  by the start script.
+Added tty: true  >> this comand ensures that my container does not exit but rather keeps running. However I come across another error which is brought about  by the start script. updtaed the start script to  *"start": "react-scripts --openssl-legacy-provider start",* This solved my issue as my development server could now start. 
+
+
