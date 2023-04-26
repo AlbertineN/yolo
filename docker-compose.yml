@@ -1,0 +1,45 @@
+version: "3.9"
+services:
+  mongo_db:
+    container_name: yolo_db
+    image: mongo:latest
+    restart: always
+    ports:
+      - 2717:27017
+    volumes:
+      - mongo_db:/data/db
+
+#our backend service
+
+  backend:
+    container_name: yolo_backend
+    build: ./backend
+    image: figent/yolo_backend:v.0.0.1
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/usr/src/yolo
+    environment:
+        PORT: 5000
+        MONGODB_URI: mongodb://mongo_db:27017
+        DB_NAME: yolomy
+
+    depends_on:
+      - mongo_db
+
+  # our client service
+  client:
+    container_name: yolo_client
+    build: ./client
+    image: figent/yolo_client:v0.0.1
+    tty: true
+    ports:
+      - 3000:3000
+    environment:
+        PORT: 3000
+    depends_on:
+      - backend
+    
+
+volumes:
+  mongo_db: {}

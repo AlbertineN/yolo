@@ -6,3 +6,6 @@ Create a Dockerfile for the client image that will create a docker container in 
 
 Step Three
 Create a Dockerfile for the backend image that will create a docker comtainer in which the backend will run in. 
+
+Step Four
+Create a docker-compose.yml file to orchestrate our e-commerce platform. In this file, we will also pull a mongodb image as our backend requires a mongodb database. 
