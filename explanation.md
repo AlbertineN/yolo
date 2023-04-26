@@ -19,4 +19,7 @@ Added tty: true  >> this comand ensures that my container does not exit but rath
 Step Seven
 Accessed the website on *http://localhost:3000* tested my connections by adding a product. the product was added succesfully. Stopped my containers and run *sudo docker compose down*  to stop and remove my containers. run sudo docker compose up to create fresh containers from my images and upon accessing the site, the product I added was still there meaning I set my volumes well and my data persisted. 
 
+Step Eight
+pushed my docker images to docker hub
+
 
