@@ -1,11 +1,11 @@
-FROM node:8
+FROM node:alpine
 
-WORKDIR /backend-yolo
+WORKDIR /usr/src/yolo-back
+
+COPY package*.json .
+
+RUN npm ci
 
 COPY . .
 
-RUN npm install
-
-EXPOSE 5000
-
-ENTRYPOINT [ "npm", "start" ]
+CMD [ "npm", "start" ]

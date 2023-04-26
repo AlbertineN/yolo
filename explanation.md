@@ -9,3 +9,6 @@ Create a Dockerfile for the backend image that will create a docker comtainer in
 
 Step Four
 Create a docker-compose.yml file to orchestrate our e-commerce platform. In this file, we will also pull a mongodb image as our backend requires a mongodb database. 
+
+Step Five
+Run the docker compose up command to build images run them. Upon running the command, i realize that my client container exits before the deployment server starts.
