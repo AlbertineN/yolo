@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  mongo:
+    container_name: mongo_db
+    image: mongo:latest
+    restart: always
+    ports:
+      - 2717:27017
+    volumes: 
+      - mongodb:/data/db
+
+  backend:
+    container_name: backendtest
+    image: figent/yolo_backend:v.0.0.1
+    ports:
+      - 5000:5000
+    volumes:
+      - .:/data
+    environment:
+      PORTS: 5000
+      MONGODB_URI: mongodb://mongo/:27017
+      DB_NAME: yolomy
+    depends_on:
+      - mongo
+
+  client:
+    container_name: clienttest
+    image: figent/yolo_client:v0.0.1
+    ports:
+      - 3000:3000
+    depends_on:
+      - backend
+
+volumes:
+  mongodb: {}  
