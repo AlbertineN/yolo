@@ -2,11 +2,11 @@ FROM node:20.0.0-alpine3.16 as build
 
 WORKDIR /usr/src/yolo-back
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN npm ci
 
-COPY . .
+COPY . ./
 
 FROM node:20.0.0-alpine3.16
 
