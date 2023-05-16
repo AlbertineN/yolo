@@ -22,4 +22,15 @@ Accessed the website on *http://localhost:3000* tested my connections by adding 
 Step Eight
 pushed my docker images to docker hub
 
+# How to deploy ans application to a vagrant virtual Machine usuing ansible
+
+Preriquisites
+
+1. Have Vagrant installed in your local machine or control node
+2. Have ansible installed in your local machine or control node
+3. Have virtual box installed in your local machine and disable secure booting in your boot menu.
+
+
+First thing to do is configure your vagrant file in the root directory of the application you want to deploy. In my case the yolo directory. In your vagrant file, specify the virtual machine image to pull and initiate *geerlingguy/ubuntu2004* give it a host name *yolo.test*, a private network ip *192.168.56.0*, disable the ssh insert key by setting it to false  assign some memory to it *around 1500mb to 2000mb will do* last but not least configure an ansible provisioner so we can run our playbook with vagrant by providing the playbook to be run. In our case playbook.yaml.
+
 
