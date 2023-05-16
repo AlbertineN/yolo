@@ -53,4 +53,14 @@ We need to configure our vm by setting up an environment to deploy our applicati
       2. Add a reporitory in apt and update the apt cache
       3. install mongodb using apt. the apt package name is mongodb-org
       4. Ensure that mongodb is running and will run on booting by setting the state to started and enabled to yes.
-       
+
+
+ By this point our virtual machine is ready to receive our containirised application and run it.
+ We clone the repository using the ansible.builtin.git module and our destination to /usr/local/src/yolo and set our state to present.
+ finaly we run our docker compose by setting our play as shown below 
+
+ - name: Run docker-compose
+      docker_compose:
+       project_src: /usr/local/src/yolo
+       state: present
+

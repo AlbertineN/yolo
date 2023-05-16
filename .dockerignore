@@ -1,0 +1,77 @@
+- name: Create a bridge network
+      docker_network: 
+        name: yolonet
+        driver_options:
+         com.docker.network.bridge.name: yolonet
+
+    - name: Pull the latest mongodb image
+      docker_image:
+        name: mongo
+        tag: 4.4.21
+        source: pull
+
+    - name: Pull the yolo backend image
+      docker_image:
+        name: figent/yolo_backend
+        tag: v.0.0.1
+        source: pull
+
+    - name: Pull the yolo client image
+      docker_image:
+        name: figent/yolo_client
+        tag: v0.0.1 
+        source: pull
+    
+    - name: start the mongo db container and connect it to the network yolonet
+      docker_container:
+        name: mongoans
+        image: mongo:4.4.21
+        networks:
+         - name: yolonet
+           aliases:
+            - basedb
+        volumes:
+         - /data/db 
+        ports:
+         - "2717:27017"
+        state: started
+        restart: yes
+      register: dboutput
+
+    - name: Show dboutput
+      debug:
+       var: dboutput
+
+    - name: Start the backend container connect to network yolonet and link with mongoans container
+      docker_container:
+        name: backendyolo
+        image: figent/yolo_backend:v.0.0.1
+        networks:
+         - name: yolonet
+           aliases:
+            - yoloba
+           links:
+            - "mongoans"
+        volumes:
+         - /usr/local/src/yolo
+        ports:
+         - "5000:5000"
+        env:
+         PORT: "5000"
+         MONGODB_URI: mongodb://mongoans:27017
+         DB_NAME: yolomy
+        state: started
+      register: output
+        
+    - name: Start the client container connect to network yolonet and link with backend 
+      docker_container:
+        name: clientyolo
+        image: figent/yolo_client:v0.0.1
+        networks:
+         - name: yolonet
+           links:
+            - "backendyolo"
+        ports:
+         - "3000:3000"
+        state: started
+        restart: yes
