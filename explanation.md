@@ -64,3 +64,7 @@ We need to configure our vm by setting up an environment to deploy our applicati
        project_src: /usr/local/src/yolo
        state: present
 
+The last step is to check the website via the link http://192.168.56.0:3000/ add a product and confirm that the data persists.
+
+Point to note, to run the playbook use the command vagrant up to create the VM and vagrant provision to initiate the plays.
+
