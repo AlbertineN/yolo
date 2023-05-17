@@ -37,7 +37,7 @@ services:
       - 3000:3000
     environment:
         PORT: 3000
-        PROXY_API: http://yolo-backend:5000/
+        PROXY_API: http://backend:5000/
     depends_on:
       - backend
     
