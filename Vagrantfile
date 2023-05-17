@@ -7,6 +7,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "geerlingguy/ubuntu2004"
   config.vm.hostname = "yolo.test"
   config.vm.network :private_network, ip: "192.168.56.0"
+  config.vm.network "forwarded_port", guest: 3000, host: 3000, protocol: "tcp"
+  config.vm.network "forwarded_port", guest: 5000, host: 5000, protocol: "tcp"
   config.ssh.insert_key = false
   config.vm.synced_folder ".", "/vagrant", disabled: true
 

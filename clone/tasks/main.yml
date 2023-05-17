@@ -1,0 +1,6 @@
+---
+- name: git clone the yolo repository
+  ansible.builtin.git:
+    repo: https://github.com/AlbertineN/yolo.git
+    dest: "{{ pathtoyolo }}"
+    version: master
