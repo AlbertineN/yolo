@@ -83,5 +83,11 @@ Point to note, to run the playbook use the command vagrant up to create the VM a
 4. Install gcloud CLI in your local terminal to gain access to the cluster you just created. https://cloud.google.com/sdk/docs/install
 5. Install Kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
 
+### Git Clone
+Clone this repository to your machine.
+`git clone https://github.com/AlbertineN/yolo.git`
+
+
+
 
 
