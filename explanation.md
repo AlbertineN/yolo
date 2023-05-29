@@ -102,6 +102,10 @@ Run the comand `kubectl apply -f manifest/mongodb/service.yaml -n -development` 
 
 to cofirm if our pod is up and running run the comand `kubectl get pods -n development`
 
+### Set up our backend app
+Run the command `kubectl create -f manifest/backend/yolobackdep.yaml -n development` to create the pod
+Run the comand `kubectl apply -f manifest/backend/service.yaml -n -development` to expose our pod externaly on port 5000
+
 
 
 
