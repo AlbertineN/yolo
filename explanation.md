@@ -110,7 +110,10 @@ Run the comand `kubectl apply -f manifest/backend/service.yaml -n -development` 
 Run the command `kubectl create -f manifest/client/yoloclientdep.yaml -n development` to create the pod
 Run the comand `kubectl apply -f manifest/client/service.yaml -n -development` to expose our pod externaly on port 3000
 
+### Accesing our application
+Run the command `kubectl get svc -n development` to get the ip addresses asigned to our application. On the list look for the yoloclient service and copy its external ip and post it on the url. add port 3000 then hit enter to access the website. 
 
+In my case the link will be   http://35.196.73.143:3000/
 
 
 
