@@ -106,6 +106,10 @@ to cofirm if our pod is up and running run the comand `kubectl get pods -n devel
 Run the command `kubectl create -f manifest/backend/yolobackdep.yaml -n development` to create the pod
 Run the comand `kubectl apply -f manifest/backend/service.yaml -n -development` to expose our pod externaly on port 5000
 
+### Set up our client app
+Run the command `kubectl create -f manifest/client/yoloclientdep.yaml -n development` to create the pod
+Run the comand `kubectl apply -f manifest/client/service.yaml -n -development` to expose our pod externaly on port 3000
+
 
 
 
