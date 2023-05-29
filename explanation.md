@@ -115,6 +115,9 @@ Run the command `kubectl get svc -n development` to get the ip addresses asigned
 
 In my case the link will be   http://35.196.73.143:3000/
 
+## Note
+Change the backend proxy link in the client application from http://localhost/5000/api/products to http://35.231.157.129:5000/ "the backend gke proxy" for a good connection to the database in our cluster.
+
 
 
 
