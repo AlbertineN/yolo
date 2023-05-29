@@ -75,4 +75,13 @@ Point to note, to run the playbook use the command vagrant up to create the VM a
 2. GCP account
 3. credit card to activate the 90days free account.
 
+### Steps configurations 
+
+1. Create a project in your GCP account
+2. Configure your compute region and zone
+3. Create your cluster with atleast 2 nodes where your pods will be created and run.
+4. Install gcloud CLI in your local terminal to gain access to the cluster you just created. https://cloud.google.com/sdk/docs/install
+5. Install Kubectl https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/
+
+
 
