@@ -17,15 +17,19 @@
       spec: 
         containers: 
           - name: "mongo-db"
-            image: "mongo:latest"
+            image: "mongo:4.4.21"
             imagePullPolicy: "Always"
+
+            env:
+              - name: MONGO_DB
+                value: yolomy
                 
             ports: 
               - containerPort: 27017
                 
             volumeMounts: 
               - name: "mongodb-persistent-storage"
-                mountPath: "/data/db"
+                mountPath: "/etc/data/db"
         priorityClassName: "high-priority"
                 
         volumes: 
