@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-client-app
+  labels:
+    app: client-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: client-app
+  template:
+    metadata:
+      labels:
+        app: client-app
+    spec:
+      containers:
+      - name: client-app
+        image: figent/yolo_client:v0.0.1
+        imagePullPolicy: Always
+
+        env:
+            - name: PORT
+              value: "3000"
+            - name: PROXY_API
+              value: "http://backend-app:5000/"
+
+        ports:
+        - containerPort: 3000
+      
+      priorityClassName: high-priority

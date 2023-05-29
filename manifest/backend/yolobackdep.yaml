@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-backend-app
+  labels:
+    app: backend-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-app
+  template:
+    metadata:
+      labels:
+        app: backend-app
+    spec:
+      containers:
+      - name: backend-app
+        image: figent/yolo_backend:v.0.0.1
+        imagePullPolicy: Always
+
+        env:
+          - name: MONGODB_URI
+            value: mongodb://mongo-db:27017/yolomy
+         
+        ports:
+        - containerPort: 5000
+
+      priorityClassName: high-priority
