@@ -68,3 +68,11 @@ The last step is to check the website via the link http://192.168.56.0:3000/ add
 
 Point to note, to run the playbook use the command vagrant up to create the VM and vagrant provision to initiate the plays.
 
+# App Deploment to GKE
+
+##Preriquisites
+1. Docker
+2. GCP account
+3. credit card to activate the 90days free account.
+
+
