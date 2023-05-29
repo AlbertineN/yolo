@@ -70,7 +70,7 @@ Point to note, to run the playbook use the command vagrant up to create the VM a
 
 # App Deploment to GKE
 
-##Preriquisites
+### Preriquisites
 1. Docker
 2. GCP account
 3. credit card to activate the 90days free account.
@@ -86,6 +86,23 @@ Point to note, to run the playbook use the command vagrant up to create the VM a
 ### Git Clone
 Clone this repository to your machine.
 `git clone https://github.com/AlbertineN/yolo.git`
+
+### Execution
+1. Navigate to the yolo project folder `cd /path/to/project`
+2. Run the command `gcloud init` to log in to the gcloud CLI
+3. On the terminal run `kubectl config get-contexts` to see the clusters you have. 
+4. On the terminal run `kubectl config use-context <name of your cluster>` to make sure you are working on the right cluster
+
+### set up StatefulSet for our mongodb
+Run the comand `kubectl create -f manifest/mongodb/pvc.yaml -n development` to create a persistent volume claim within our cluster
+Run the comand `kubectl create -f manifest/mongodb/scn.yaml -n development` to create a storage class within our cluster
+Run the comand `kubectl apply -f manifest/mongodb/priorityclass.yaml -n development` to set up a priorityClass.
+Run the comand `kubectl create -f manifest/mongodb/StatefulSet.yaml -n development` to create our pod
+Run the comand `kubectl apply -f manifest/mongodb/service.yaml -n -development` to expose our pod externaly on port 27017
+
+to cofirm if our pod is up and running run the comand `kubectl get pods -n development`
+
+
 
 
 
