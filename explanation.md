@@ -94,6 +94,7 @@ Clone this repository to your machine.
 4. On the terminal run `kubectl config use-context <name of your cluster>` to make sure you are working on the right cluster
 
 ### set up StatefulSet for our mongodb
+Create a workspace where your pods and services will be created and run `kubectl create namespace development` 
 Run the comand `kubectl create -f manifest/mongodb/pvc.yaml -n development` to create a persistent volume claim within our cluster
 Run the comand `kubectl create -f manifest/mongodb/scn.yaml -n development` to create a storage class within our cluster
 Run the comand `kubectl apply -f manifest/mongodb/priorityclass.yaml -n development` to set up a priorityClass.
@@ -117,6 +118,7 @@ In my case the link will be   http://35.196.73.143:3000/
 
 ## Note
 Change the backend proxy link in the client application from http://localhost/5000/api/products to http://35.231.157.129:5000/ "the backend gke proxy" for a good connection to the database in our cluster.
+The file location is client/src/components/ProductControl.js. Then build a version docker image, push to git hub then pull it in the client manifest.
 
 
 
